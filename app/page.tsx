@@ -48,7 +48,7 @@ export default function HomePage() {
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-rose-500 text-white">
               <Home size={20} />
             </div>
-            <span className="text-xl font-bold tracking-tight">NESTORY</span>
+            <img src="/logo.png" alt="Nestory" className="h-16 w-auto" />
           </div>
           <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
             <a href="#logements" className="hover:text-rose-500">Explorer</a>
