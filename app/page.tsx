@@ -1,149 +1,272 @@
-const homes = [
+const listings = [
   {
-    title: "Appartement lumineux",
-    city: "Paris",
+    title: "Appartement lumineux avec balcon",
+    city: "Paris 11e",
     type: "Meublé longue durée",
-    price: "1 250 € / mois",
+    price: "1 420 € / mois",
     rating: "4,92",
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop",
+    reviews: "38 avis",
+    image:
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1400&auto=format&fit=crop",
+    tags: ["Calme", "Métro proche", "Propriétaire réactif"],
   },
   {
-    title: "Studio cosy rénové",
-    city: "Lyon",
-    type: "Studio meublé",
-    price: "820 € / mois",
-    rating: "4,87",
-    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    title: "T2 avec balcon",
-    city: "Bordeaux",
+    title: "T2 rénové proche centre",
+    city: "Lyon 6e",
     type: "Location nue",
     price: "980 € / mois",
-    rating: "4,95",
-    image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1200&auto=format&fit=crop",
+    rating: "4,88",
+    reviews: "21 avis",
+    image:
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1400&auto=format&fit=crop",
+    tags: ["Balcon", "DPE C", "Quartier agréable"],
   },
   {
-    title: "Loft premium",
+    title: "Studio cosy et bien isolé",
+    city: "Bordeaux",
+    type: "Studio meublé",
+    price: "740 € / mois",
+    rating: "4,96",
+    reviews: "26 avis",
+    image:
+      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1400&auto=format&fit=crop",
+    tags: ["Transports", "Silencieux", "Commerces"],
+  },
+  {
+    title: "Loft premium longue durée",
     city: "Marseille",
     type: "Meublé premium",
-    price: "1 490 € / mois",
-    rating: "4,89",
-    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    title: "Appartement calme",
-    city: "Nantes",
-    type: "Longue durée",
-    price: "890 € / mois",
-    rating: "4,81",
-    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1200&auto=format&fit=crop",
+    price: "1 560 € / mois",
+    rating: "4,91",
+    reviews: "17 avis",
+    image:
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1400&auto=format&fit=crop",
+    tags: ["Vue dégagée", "Lumineux", "Sécurisé"],
   },
 ];
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white text-neutral-900">
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b">
-        <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
-          <img src="/logo.png" alt="Nestory" className="h-14 w-auto" />
+    <main className="min-h-screen bg-[#faf7f2] text-[#17352d]">
+      <header className="sticky top-0 z-50 border-b border-black/5 bg-white/90 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <img src="/logo.png" alt="Nestory" className="h-16 w-auto" />
 
-          <nav className="hidden md:flex items-center gap-10 font-medium">
-            <a className="border-b-2 border-black pb-2">Logements</a>
-            <a className="text-neutral-500 hover:text-black">Expériences</a>
-            <a className="text-neutral-500 hover:text-black">Services</a>
+          <nav className="hidden items-center gap-10 text-sm font-semibold md:flex">
+            <a className="text-[#b8872f]">Accueil</a>
+            <a className="hover:text-[#b8872f]">Rechercher</a>
+            <a className="hover:text-[#b8872f]">Déposer une annonce</a>
+            <a className="hover:text-[#b8872f]">Favoris</a>
           </nav>
 
           <div className="flex items-center gap-3">
-            <button className="hidden md:block font-semibold">Devenir propriétaire</button>
-            <button className="h-11 w-11 rounded-full bg-neutral-100">🌐</button>
-            <button className="h-11 w-11 rounded-full bg-neutral-100">☰</button>
-          </div>
-        </div>
-
-        <div className="mx-auto max-w-4xl px-6 pb-6">
-          <div className="flex items-center rounded-full border bg-white shadow-xl overflow-hidden">
-            <div className="flex-1 px-7 py-4 border-r">
-              <p className="text-xs font-bold">Destination</p>
-              <p className="text-neutral-500">Rechercher une ville</p>
-            </div>
-            <div className="flex-1 px-7 py-4 border-r">
-              <p className="text-xs font-bold">Type</p>
-              <p className="text-neutral-500">Meublé, nu...</p>
-            </div>
-            <div className="flex-1 px-7 py-4 border-r">
-              <p className="text-xs font-bold">Budget</p>
-              <p className="text-neutral-500">Prix maximum</p>
-            </div>
-            <button className="m-2 h-14 w-14 rounded-full bg-rose-500 text-white text-xl">
-              🔍
+            <button className="hidden rounded-full border border-[#17352d]/20 px-5 py-3 text-sm font-semibold md:block">
+              Connexion
+            </button>
+            <button className="rounded-full bg-[#17352d] px-5 py-3 text-sm font-semibold text-white shadow-lg">
+              S'inscrire
             </button>
           </div>
         </div>
       </header>
 
-      <section className="mx-auto max-w-7xl px-6 py-10">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight max-w-3xl">
-          Trouvez une location longue durée en toute confiance.
-        </h1>
-        <p className="mt-4 text-lg text-neutral-600 max-w-2xl">
-          Des logements évalués sur le confort, le voisinage, la communication et l’expérience locative.
-        </p>
+      <section className="relative overflow-hidden">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-[1.05fr_0.95fr] md:items-center md:py-24">
+          <div>
+            <p className="mb-5 inline-flex rounded-full bg-white px-5 py-2 text-sm font-bold text-[#b8872f] shadow-sm">
+              Location longue durée plus transparente
+            </p>
+
+            <h1 className="max-w-3xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
+              Trouvez votre futur chez-vous en toute confiance.
+            </h1>
+
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-[#45635b]">
+              Nestory connecte locataires et propriétaires grâce à des avis
+              vérifiés, des critères objectifs et une expérience moderne pensée
+              pour la location longue durée.
+            </p>
+
+            <div className="mt-10 rounded-[2rem] bg-white p-3 shadow-2xl">
+              <div className="grid gap-3 md:grid-cols-[1.2fr_1fr_1fr_auto]">
+                <div className="rounded-2xl border border-black/10 px-5 py-4">
+                  <p className="text-xs font-bold uppercase text-[#b8872f]">
+                    Destination
+                  </p>
+                  <input
+                    placeholder="Ville, quartier..."
+                    className="mt-1 w-full bg-transparent text-sm outline-none"
+                  />
+                </div>
+
+                <div className="rounded-2xl border border-black/10 px-5 py-4">
+                  <p className="text-xs font-bold uppercase text-[#b8872f]">
+                    Type
+                  </p>
+                  <input
+                    placeholder="Meublé, nu..."
+                    className="mt-1 w-full bg-transparent text-sm outline-none"
+                  />
+                </div>
+
+                <div className="rounded-2xl border border-black/10 px-5 py-4">
+                  <p className="text-xs font-bold uppercase text-[#b8872f]">
+                    Budget
+                  </p>
+                  <input
+                    placeholder="Prix max"
+                    className="mt-1 w-full bg-transparent text-sm outline-none"
+                  />
+                </div>
+
+                <button className="rounded-2xl bg-[#17352d] px-8 py-4 font-bold text-white transition hover:scale-[1.02]">
+                  Rechercher
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative">
+            <img
+              src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1600&auto=format&fit=crop"
+              alt="Appartement moderne"
+              className="h-[560px] w-full rounded-[3rem] object-cover shadow-2xl"
+            />
+
+            <div className="absolute bottom-6 left-6 right-6 rounded-[2rem] bg-white/95 p-5 shadow-2xl backdrop-blur">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm text-[#45635b]">
+                    Score confiance logement
+                  </p>
+                  <p className="text-2xl font-black">4,9 / 5</p>
+                </div>
+                <div className="rounded-full bg-[#fff4d8] px-4 py-2 font-bold text-[#b8872f]">
+                  52 critères vérifiés
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-16">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold">Logements populaires</h2>
-          <button className="rounded-full bg-neutral-100 px-4 py-2">→</button>
+      <section className="mx-auto max-w-7xl px-6 py-10">
+        <div className="mb-8 flex items-end justify-between">
+          <div>
+            <h2 className="text-3xl font-black">Logements populaires</h2>
+            <p className="mt-2 text-[#45635b]">
+              Des biens sélectionnés selon la qualité du logement, du quartier
+              et de la relation locative.
+            </p>
+          </div>
+          <button className="hidden rounded-full bg-white px-5 py-3 font-bold shadow-sm md:block">
+            Voir tout →
+          </button>
         </div>
 
-        <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-5">
-          {homes.map((home) => (
-            <article key={home.title} className="group cursor-pointer">
-              <div className="relative overflow-hidden rounded-3xl">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {listings.map((listing) => (
+            <article key={listing.title} className="group cursor-pointer">
+              <div className="relative overflow-hidden rounded-[2rem] bg-white shadow-lg">
                 <img
-                  src={home.image}
-                  alt={home.title}
-                  className="h-64 w-full object-cover transition duration-300 group-hover:scale-105"
+                  src={listing.image}
+                  alt={listing.title}
+                  className="h-72 w-full object-cover transition duration-500 group-hover:scale-110"
                 />
-                <div className="absolute top-3 left-3 rounded-full bg-white px-4 py-2 text-sm font-semibold shadow">
+
+                <div className="absolute left-4 top-4 rounded-full bg-white px-4 py-2 text-xs font-black shadow">
                   Coup de cœur
                 </div>
-                <button className="absolute top-3 right-3 text-3xl text-white drop-shadow">
+
+                <button className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-2 text-xl shadow">
                   ♡
                 </button>
               </div>
 
-              <div className="mt-3">
-                <div className="flex justify-between gap-3">
-                  <h3 className="font-bold">{home.title} · {home.city}</h3>
-                  <span>★ {home.rating}</span>
+              <div className="mt-4">
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="font-black leading-snug">
+                    {listing.title}
+                  </h3>
+                  <span className="shrink-0 font-bold">★ {listing.rating}</span>
                 </div>
-                <p className="text-neutral-500 text-sm">{home.type}</p>
-                <p className="mt-1 font-semibold">{home.price}</p>
+
+                <p className="mt-1 text-sm text-[#45635b]">
+                  {listing.city} · {listing.type}
+                </p>
+
+                <p className="mt-2 font-black">{listing.price}</p>
+
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {listing.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-white px-3 py-1 text-xs font-bold text-[#45635b] shadow-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="bg-neutral-50 py-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <h2 className="text-3xl font-bold mb-8">Pourquoi choisir Nestory ?</h2>
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="rounded-[3rem] bg-[#17352d] p-8 text-white md:p-14">
+          <div className="grid gap-10 md:grid-cols-2 md:items-center">
+            <div>
+              <p className="mb-4 font-bold text-[#d8ad51]">
+                Pour locataires et propriétaires
+              </p>
+              <h2 className="text-4xl font-black leading-tight md:text-5xl">
+                Une plateforme pensée pour créer de la confiance.
+              </h2>
+              <p className="mt-6 leading-8 text-white/75">
+                Les logements sont évalués sur des critères concrets :
+                luminosité, bruit, isolation, quartier, communication,
+                réactivité, état du logement et expérience locative.
+              </p>
+            </div>
 
-          <div className="grid gap-6 md:grid-cols-4">
-            {[
-              ["🏠", "Logements mieux évalués", "Des critères précis sur le logement et le quartier."],
-              ["⭐", "Avis vérifiés", "Des retours liés à de vraies expériences locatives."],
-              ["💬", "Communication claire", "Réactivité et qualité des échanges prises en compte."],
-              ["🛡️", "Confiance renforcée", "Droit de réponse, modération et transparence."],
-            ].map(([icon, title, text]) => (
-              <div key={title} className="rounded-3xl bg-white p-6 shadow-sm border">
-                <div className="text-4xl">{icon}</div>
-                <h3 className="mt-4 font-bold text-lg">{title}</h3>
-                <p className="mt-2 text-neutral-600">{text}</p>
-              </div>
-            ))}
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                ["🏠", "Logements notés", "Critères objectifs sur le bien."],
+                ["⭐", "Avis vérifiés", "Basés sur une vraie expérience."],
+                ["💬", "Relation claire", "Communication et réactivité."],
+                ["🛡️", "Modération", "Droit de réponse et sécurité."],
+              ].map(([icon, title, text]) => (
+                <div
+                  key={title}
+                  className="rounded-[2rem] bg-white/10 p-6 backdrop-blur"
+                >
+                  <div className="text-4xl">{icon}</div>
+                  <h3 className="mt-4 font-black">{title}</h3>
+                  <p className="mt-2 text-sm text-white/70">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <div className="rounded-[3rem] bg-white p-8 shadow-xl md:p-12">
+          <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-center">
+            <div>
+              <h2 className="text-4xl font-black">
+                Vous êtes propriétaire ?
+              </h2>
+              <p className="mt-4 max-w-2xl text-[#45635b]">
+                Publiez votre logement, recevez des candidatures qualifiées et
+                suivez la qualité de vos échanges avec les locataires.
+              </p>
+            </div>
+
+            <button className="rounded-full bg-[#b8872f] px-8 py-4 font-black text-white shadow-lg transition hover:scale-[1.02]">
+              Déposer une annonce
+            </button>
           </div>
         </div>
       </section>
